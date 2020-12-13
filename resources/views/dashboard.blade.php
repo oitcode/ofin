@@ -7,4 +7,5 @@
 @stop
 
 @section('content')
+  @livewire('product-category-component')
 @stop
