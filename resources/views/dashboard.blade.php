@@ -8,4 +8,5 @@
 
 @section('content')
   @livewire('product-component')
+  @livewire('salesbook-entry-component')
 @stop
