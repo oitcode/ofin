@@ -8,6 +8,8 @@
         <i class="fas fa-plus"></i>
       </button>
 
+      {{ $foobar }}
+
       @if (true)
         <button class="btn btn-sm text-danger" wire:click="">
           <i class="fas fa-power-off">
