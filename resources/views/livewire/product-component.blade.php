@@ -15,7 +15,7 @@
     @livewire('product-create')
   @endif
 
-  @if ($productCategoryCreateMode)
+  @if ($createProductCategoryMode)
     @livewire('product-category-create')
   @endif
 

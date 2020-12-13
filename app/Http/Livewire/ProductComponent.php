@@ -8,9 +8,11 @@ class ProductComponent extends GeneralComponent
 {
     public $productCategoryCreateMode = false;
 
+    public $createProductCategoryMode = false;
+
     protected $listeners = [
         'destroy_productCreateModal' => 'exitCreateMode',
-        //'productAdded' => 'refreshProductList',
+        'destroy_productCategoryCreateModal' => 'exitProductCategoryCreateMode',
     ];
 
     public function render()
@@ -25,6 +27,11 @@ class ProductComponent extends GeneralComponent
 
     public function createProductCategory()
     {
-        $this->productCategoryCreateMode = true;
+        $this->createProductCategoryMode = true;
+    }
+
+    public function exitProductCategoryCreateMode()
+    {
+        $this->createProductCategoryMode = false;
     }
 }

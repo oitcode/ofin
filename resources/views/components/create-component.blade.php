@@ -30,6 +30,7 @@
 
     /* Toggle the modal.  */
     window.livewire.on("toggle_{{ $componentId }}", () => {
+        console.log('Hiding foo');
         $("#{{ $componentId }}").modal('hide');
     });
 

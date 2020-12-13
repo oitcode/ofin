@@ -8,5 +8,4 @@
 
 @section('content')
   @livewire('product-component')
-  @livewire('product-category-component')
 @stop

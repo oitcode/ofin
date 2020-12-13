@@ -8,7 +8,7 @@
         <i class="fas fa-plus"></i>
       </button>
 
-      {{ $foobar }}
+      {{ $foobar ?? 'Foobar' }}
 
       @if (true)
         <button class="btn btn-sm text-danger" wire:click="">
