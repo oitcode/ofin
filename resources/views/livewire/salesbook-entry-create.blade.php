@@ -17,58 +17,39 @@
         </div>
     </div>
 
-    @if (false)
-    <div class="form-group form-inline m-0">
-        <div class="input-group w-100">
-          <div class="input-group-prepend w-25">
-            <div class="input-group-text w-100">
-              Product
-            </div>
-          </div>
-          <select class="custom-select" wire:model="product_id" wire:change="setPrice">
-            <option>---</option>
-            @foreach($products as $product)
-              <option value="{{ $product->product_id }}">{{ $product->name }}</option>
-            @endforeach
-          </select>
-        </div>
-    </div>
-    @endif
 
 
     <div class="my-3">
-      <span class="btn btn-sm">
+      <span class="btn btn-sm" wire:click="add">
         <i class="fas fa-plus mr-3">
         </i>
         ADD PRODUCT
       </span>
     </div>
 
-    @if (false)
-    <div class="form-group form-inline m-0">
-        <div class="input-group w-100">
-          <div class="input-group-prepend w-25">
-            <div class="input-group-text w-100">
-              <i class="fas fa-caret-right mr-3"></i>
-            </div>
-          </div>
-          <input type="text" class="form-control" wire:model="price" wire:change="setAmount" placeholder="Price">
-          @error('price') <span class="text-danger">{{ $message }}</span>@enderror
+    @for ($i=0; $i < $count; $i++)
+      <div class="border-bottom">
+        <div class="float-left">
+          {{ $i + 1 }}
         </div>
-    </div>
+        <div class="form-group form-inline m-0">
+              <select class="custom-select w-25 border-0" wire:model="items.{{ $i }}.product_id" wire:change="updateItemPrice({{ $i }})">
+                <option>---</option>
+                @foreach($products as $product)
+                  <option value="{{ $product->product_id }}">{{ $product->name }}</option>
+                @endforeach
+              </select>
 
-    <div class="form-group form-inline m-0">
-        <div class="input-group w-100">
-          <div class="input-group-prepend w-25">
-            <div class="input-group-text w-100">
-              <i class="fas fa-times mr-3"></i>
-            </div>
-          </div>
-          <input type="text" class="form-control" wire:model="quantity" wire:change="setAmount" placeholder="Quantity">
-          @error('quantity') <span class="text-danger">{{ $message }}</span>@enderror
+              <input type="text" class="form-control w-25" wire:model="items.{{ $i }}.price" wire:change="" placeholder="Price">
+
+              <input type="text" class="form-control w-25" wire:model="items.{{ $i }}.quantity" wire:keydown.tab.prevent="setItemTotal({{ $i }})"
+              wire:keydown.enter.prevent="setItemTotal({{ $i }})" wire:change="" placeholder="Quantity">
+              <input type="text" class="form-control w-25" wire:model="items.{{ $i }}.amount" wire:change="" placeholder="Item Total" readonly>
         </div>
-    </div>
-    @endif
+      </div>
+    @endfor
+
+
 
     <div class="form-group form-inline m-0">
         <div class="input-group w-100">
