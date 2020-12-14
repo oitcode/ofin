@@ -4,21 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SalesbookEntry extends Model
+class SalesbookEntryItem extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'salesbook_entry';
+    protected $table = 'salesbook_entry_item';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'salesbook_entry_id';
+    protected $primaryKey = 'salesbook_entry_item_id';
 
     /**
      * The attributes that are mass assignable.
@@ -26,8 +26,7 @@ class SalesbookEntry extends Model
      * @var array
      */
     protected $fillable = [
-        'datetime',
-        'buyer_name',
+        'salesbook_entry_id',
         'product_id',
         'price',
         'quantity',
@@ -43,11 +42,29 @@ class SalesbookEntry extends Model
      */
     
     /*
-     * salesbook_entry_item table.
+     * salesbook_entry table.
      *
      */
-    public function salesbookEntryItems()
+    public function salesbookEntry()
     {
-        return $this->belongsTo('App\SalesbookEntryItem', 'salesbook_entry_id', 'salesbook_entry_id');
+        return $this->belongsTo('App\SalesbookEntry', 'salesbook_entry_id', 'salesbook_entry_id');
+    }
+
+    /*
+     * product table.
+     *
+     */
+    public function product()
+    {
+        return $this->belongsTo('App\Product', 'product_id', 'product_id');
+    }
+
+    /*
+     * product table.
+     *
+     */
+    public function inventoryEntry()
+    {
+        return $this->hasOne('App\InventoryEntry', 'salesbook_entry_item_id', 'salesbook_entry_item_id');
     }
 }

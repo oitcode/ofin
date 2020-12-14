@@ -4,21 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SalesbookEntry extends Model
+class InventoryEntry extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'salesbook_entry';
+    protected $table = 'inventory_item';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'salesbook_entry_id';
+    protected $primaryKey = 'inventory_item_id';
 
     /**
      * The attributes that are mass assignable.
@@ -26,10 +26,10 @@ class SalesbookEntry extends Model
      * @var array
      */
     protected $fillable = [
-        'datetime',
-        'buyer_name',
         'product_id',
-        'price',
+        'salesbook_entry_item_id',
+        'count',
+        'direction',
         'quantity',
         'amount',
         'comment',
@@ -46,8 +46,8 @@ class SalesbookEntry extends Model
      * salesbook_entry_item table.
      *
      */
-    public function salesbookEntryItems()
+    public function salesbookEntryItem()
     {
-        return $this->belongsTo('App\SalesbookEntryItem', 'salesbook_entry_id', 'salesbook_entry_id');
+        return $this->belongsTo('App\SalesbookEntryItem', 'salesbook_entry_item_id', 'salesbook_entry_item_id');
     }
 }

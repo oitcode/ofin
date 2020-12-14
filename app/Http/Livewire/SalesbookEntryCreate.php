@@ -6,6 +6,7 @@ use Livewire\Component;
 
 use App\Product;
 use App\SalesbookEntry;
+use App\SalesbookEntryItem;
 
 class SalesbookEntryCreate extends Component
 {
@@ -30,11 +31,7 @@ class SalesbookEntryCreate extends Component
     {
         /* Validate data */
         $validatedData = $this->validate([
-            // 'datetime' => 'required|datetime',
             'buyer_name' => 'required|string',
-            'product_id' => 'required|exists:product',
-            'price' => 'required|integer',
-            'quantity' => 'required|integer',
             'amount' => 'required|integer',
             'comment' => 'nullable|string',
         ]);

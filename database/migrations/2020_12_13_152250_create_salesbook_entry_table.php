@@ -18,17 +18,6 @@ class CreateSalesbookEntryTable extends Migration
 
             $table->datetime('datetime');
             $table->string('buyer_name');
-
-            /*
-             * Foreign key to product table.
-             */
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id', 'fk_salesbook_entry_product')
-                ->references('product_id')->on('product');
-
-
-            $table->integer('price');
-            $table->integer('quantity');
             $table->integer('amount');
 
             $table->string('comment')->nullable();

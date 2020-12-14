@@ -17,6 +17,7 @@
         </div>
     </div>
 
+    @if (false)
     <div class="form-group form-inline m-0">
         <div class="input-group w-100">
           <div class="input-group-prepend w-25">
@@ -32,9 +33,18 @@
           </select>
         </div>
     </div>
+    @endif
 
 
+    <div class="my-3">
+      <span class="btn btn-sm">
+        <i class="fas fa-plus mr-3">
+        </i>
+        ADD PRODUCT
+      </span>
+    </div>
 
+    @if (false)
     <div class="form-group form-inline m-0">
         <div class="input-group w-100">
           <div class="input-group-prepend w-25">
@@ -58,6 +68,7 @@
           @error('quantity') <span class="text-danger">{{ $message }}</span>@enderror
         </div>
     </div>
+    @endif
 
     <div class="form-group form-inline m-0">
         <div class="input-group w-100">

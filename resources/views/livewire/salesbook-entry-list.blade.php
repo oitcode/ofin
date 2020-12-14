@@ -20,17 +20,6 @@
         {{ $salesbookEntry->buyer_name}}
       </td>
       <td>
-        <a href="" wire:click.prevent="" class="text-dark">
-          {{ $salesbookEntry->product->name }}
-        </a>
-      </td>
-      <td>
-        {{ $salesbookEntry->price}}
-      </td>
-      <td>
-        {{ $salesbookEntry->quantity}}
-      </td>
-      <td>
         {{ $salesbookEntry->amount}}
       </td>
       <td>
