@@ -11,6 +11,19 @@
       <div class="modal-body p-0">
         {{ $slot }}
 
+        {{-- TODO: Make this controllable --}} 
+        <div class="form-group form-inline m-0">
+            <div class="input-group w-100">
+              <div class="input-group-prepend w-25">
+                <div class="input-group-text w-100">
+                  <i class="fas fa-comment mr-3"></i>
+                </div>
+              </div>
+              <input type="text" class="form-control" wire:model="comment" placeholder="Comment">
+              @error('comment') <span class="text-danger">{{ $message }}</span>@enderror
+            </div>
+        </div>
+
         <div class="mx-2 my-4">
           <button wire:click="store" class="btn btn-sm btn-success mr-3">Save</button>
           <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancel</button>
