@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-  @livewire('product-component')
   @livewire('salesbook-entry-component')
+  @livewire('product-component')
   @livewire('inventory-component')
 @stop
