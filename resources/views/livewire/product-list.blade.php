@@ -18,6 +18,9 @@
         </a>
       </td>
       <td>
+        {{ $product->price }}
+      </td>
+      <td>
         <span class="btn btn-tool btn-sm" wire:click="">
           <i class="fas fa-pencil-alt mr-2 text-primary"></i>
         </span>
