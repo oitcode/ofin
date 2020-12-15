@@ -1,3 +1,5 @@
+@props(['bizbar'])
+
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">
@@ -11,13 +13,13 @@
       {{-- TODO: Why is this needed --}}
       {{ $foobar ?? '' }}
 
-      @if (true)
-        <button class="btn btn-sm text-danger" wire:click="">
+      @if ($bizbar === 'true')
+        <button class="btn btn-sm text-primary" wire:click="exitListMode">
           <i class="fas fa-power-off">
           </i>
         </button>
       @else
-        <button class="btn btn-sm text-primary" wire:click="">
+        <button class="btn btn-sm text-danger" wire:click="enterListMode">
           <i class="fas fa-ellipsis-h">
           </i>
         </button>

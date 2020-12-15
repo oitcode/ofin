@@ -1,4 +1,4 @@
-<x-crud-component>
+<x-crud-component bizbar='true'>
   <x-slot name="title">
     Salesbook Entry
   </x-slot>
@@ -15,5 +15,7 @@
     @livewire('salesbook-entry-create')
   @endif
 
-  @livewire('salesbook-entry-list')
+  @if ($listMode || true)
+    @livewire('salesbook-entry-list')
+  @endif
 </x-crud-component>

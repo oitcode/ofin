@@ -6,14 +6,16 @@ use Illuminate\View\Component;
 
 class CrudComponent extends Component
 {
+    public $bizbar;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(string $bizbar)
     {
-        //
+        $this->bizbar = $bizbar;
     }
 
     /**

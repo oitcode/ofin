@@ -8,6 +8,7 @@ class GeneralComponent extends Component
 {
 
     public $createMode = false;
+    public $listMode = false;
     public $displayMode = false;
     public $updateMode = false;
 
@@ -24,5 +25,15 @@ class GeneralComponent extends Component
     public function create()
     {
         $this->createMode = true;
+    }
+
+    public function enterListMode()
+    {
+        $this->listMode = true;
+    }
+
+    public function exitListMode()
+    {
+        $this->listMode = false;
     }
 }
