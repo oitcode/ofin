@@ -42,8 +42,8 @@
               <i class="fas fa-warehouse mr-3"></i>
             </div>
           </div>
-          <input type="text" class="form-control" wire:model="quantity" placeholder="Quantity">
-          @error('quantity') <span class="text-danger">{{ $message }}</span>@enderror
+          <input type="text" class="form-control" wire:model="inventory_count" placeholder="In Stock Quantity">
+          @error('inventory_count') <span class="text-danger">{{ $message }}</span>@enderror
         </div>
     </div>
 

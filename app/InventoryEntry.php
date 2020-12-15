@@ -11,14 +11,14 @@ class InventoryEntry extends Model
      *
      * @var string
      */
-    protected $table = 'inventory_item';
+    protected $table = 'inventory_entry';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'inventory_item_id';
+    protected $primaryKey = 'inventory_entry_id';
 
     /**
      * The attributes that are mass assignable.

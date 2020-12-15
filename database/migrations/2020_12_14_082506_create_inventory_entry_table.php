@@ -26,7 +26,7 @@ class CreateInventoryEntryTable extends Migration
             /*
              * Foreign key to salesbook_entry_item table.
              */
-            $table->unsignedBigInteger('salesbook_entry_item_id');
+            $table->unsignedBigInteger('salesbook_entry_item_id')->nullable();
             $table->foreign('salesbook_entry_item_id', 'fk_inventory_entry_salesbook_entry_item')
                 ->references('salesbook_entry_item_id')->on('salesbook_entry_item');
 

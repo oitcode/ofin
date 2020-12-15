@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\Product;
 use App\SalesbookEntry;
 use App\SalesbookEntryItem;
+use App\InventoryEntry;
 
 class SalesbookEntryCreate extends Component
 {
@@ -48,10 +49,25 @@ class SalesbookEntryCreate extends Component
         $salesbookEntry= SalesbookEntry::create($validatedData);
 
         foreach ($this->items as $item) {
+            /* Make salesbook_entry_items  */
             $temp = $item;
-
             $temp['salesbook_entry_id'] = $salesbookEntry->salesbook_entry_id;
             $salesbookEntryItem = SalesbookEntryItem::create($temp);
+
+            /* Make inventory_entry if needed */
+            $product = Product::findOrFail($item['product_id']);
+            if (strtolower($product->productCategory->name) !== 'service') {
+                $inventoryEntry = new InventoryEntry;
+                $inventoryEntry->product_id = $item['product_id'];
+                $inventoryEntry->salesbook_entry_item_id = $salesbookEntryItem->salesbook_entry_item_id;
+                $inventoryEntry->direction = 'out';
+                $inventoryEntry->count = $item['quantity'];
+                $inventoryEntry->save();
+
+                /* Update product quantity */
+                $product->quantity -= $item['quantity'];
+                $product->save();
+            }
         }
 
         $this->emit('addedSalesbookEntry');

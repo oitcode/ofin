@@ -6,13 +6,14 @@ use Livewire\Component;
 
 use App\Product;
 use App\ProductCategory;
+use App\InventoryEntry;
 
 class ProductCreate extends Component
 {
     public $product_category_id;
     public $name;
     public $price;
-    public $quantity;
+    public $inventory_count;
     public $comment;
 
     public $productCategories = null;
@@ -31,11 +32,18 @@ class ProductCreate extends Component
             'product_category_id' => 'required|integer|exists:product_category',
             'name' => 'required|string|unique:product',
             'price' => 'required|integer',
-            'quantity' => 'required|integer',
             'comment' => 'nullable|string',
+            'inventory_count' => 'nullable|integer|gte:1'
         ]);
+        $validatedData['quantity'] = $this->inventory_count;
 
         $product= Product::create($validatedData);
+
+        /* Create Inventory record if needed. */
+        $temp['product_id'] = $product->product_id;
+        $temp['count'] = $this->inventory_count;
+        $temp['direction'] = 'in';
+        $inventoryEntry = InventoryEntry::create($temp);
 
         $this->emit('productAdded');
         $this->emit('toggle_productCreateModal');
