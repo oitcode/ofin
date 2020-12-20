@@ -32,6 +32,7 @@ class SalesbookEntry extends Model
         'price',
         'quantity',
         'amount',
+        'payment_status',
         'comment',
     ];
 

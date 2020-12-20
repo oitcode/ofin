@@ -1,4 +1,4 @@
-<x-crud-component bizbar='true'>
+<x-crud-component>
   <x-slot name="title">
     Salesbook Entry
   </x-slot>

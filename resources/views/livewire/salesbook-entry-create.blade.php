@@ -63,6 +63,19 @@
         </div>
     </div>
 
+    @php
+      $selectData = [
+        'selectTitle' => 'Credit',
+        'mName' => 'creditFlag',
+        'selectItemType' => 'normal', 
+        'items' => [
+            'Yes',
+            'No',
+        ],
+      ];
+    @endphp
+    @include ('partials.sleek-input-select', $selectData)
+
   </form>
 
 </x-create-component>

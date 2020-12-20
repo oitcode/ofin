@@ -24,6 +24,8 @@ class SalesbookEntryCreate extends Component
     public $count = 0;
     public $items = array();
 
+    public $creditFlag = 'no';
+
     public function render()
     {
         $this->products = Product::all(); 
@@ -42,9 +44,16 @@ class SalesbookEntryCreate extends Component
             'items.*.amount' => 'required|integer',
             'amount' => 'required|integer',
             'comment' => 'nullable|string',
+            'creditFlag' => ['required', 'regex:/^yes$|^no$/i',],
         ]);
 
         $validatedData['datetime'] = date('Y-m-d H:i:s');
+
+        if (strtolower($this->creditFlag) === 'yes') {
+            $validatedData['payment_status'] = 'pending';
+        } else {
+            $validatedData['payment_status'] = 'paid';
+        }
 
         $salesbookEntry= SalesbookEntry::create($validatedData);
 
