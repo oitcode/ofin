@@ -243,8 +243,14 @@ return [
         ],
 
         [
-            'text'        => 'Daybook',
-            'url'         => '/daybook',
+            'text'        => 'Sales',
+            'url'         => '/sales',
+            'icon'        => 'fas fa-book mr-2',
+        ],
+
+        [
+            'text'        => 'Purchase',
+            'url'         => '/purchase',
             'icon'        => 'fas fa-book mr-2',
         ],
 
@@ -256,6 +262,11 @@ return [
             'label_color' => 'success',
         ],
 
+        [
+            'text'        => 'Daybook',
+            'url'         => '/daybook',
+            'icon'        => 'fas fa-book mr-2',
+        ],
 
         [
             'text'        => 'Product',
