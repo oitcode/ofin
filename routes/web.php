@@ -27,3 +27,9 @@ Route::get('/home', function () {
 
 /* Dashboard */
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+/* Product */
+Route::get('/product', 'ProductController@index')->name('product');
+
+/* Inventory */
+Route::get('/inventory', 'InventoryController@index')->name('inventory');
