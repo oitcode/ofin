@@ -7,7 +7,27 @@
 @stop
 
 @section('content')
-  @livewire('salesbook-entry-component')
-  @livewire('product-component')
-  @livewire('inventory-component')
+  <div class="row">
+    <div class="col">
+      @livewire('salesbook-entry-component')
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      @livewire('expense-component')
+    </div>
+    <div class="col-md-6">
+      @livewire('expense-component')
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      @livewire('product-component')
+    </div>
+    <div class="col-md-6">
+      @livewire('inventory-component')
+    </div>
+  </div>
 @stop

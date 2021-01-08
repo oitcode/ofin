@@ -241,13 +241,46 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
+            'text'        => 'Daybook',
+            'url'         => '/daybook',
+            'icon'        => 'fas fa-book mr-2',
+        ],
+
+        [
+            'text'        => 'Expense',
+            'url'         => '/expense',
+            'icon'        => 'fas fa-shopping-bag mr-2',
+            'label'       => 'new',
             'label_color' => 'success',
         ],
+
+
+        [
+            'text'        => 'Product',
+            'url'         => '/product',
+            'icon'        => 'fas fa-tv mr-2',
+        ],
+
+        [
+            'text'        => 'Inventory',
+            'url'         => '/inventory',
+            'icon'        => 'fas fa-truck-loading mr-2',
+        ],
+
+        [
+            'text'        => 'Customer',
+            'url'         => '/customer',
+            'icon'        => 'fas fa-users mr-2',
+        ],
+
+        [
+            'text'        => 'Vendor',
+            'url'         => '/vendor',
+            'icon'        => 'fas fa-truck-loading mr-2',
+        ],
+
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -259,6 +292,9 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+
+
+        /*
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
@@ -297,6 +333,8 @@ return [
                 ],
             ],
         ],
+
+
         ['header' => 'labels'],
         [
             'text'       => 'important',
@@ -313,6 +351,7 @@ return [
             'icon_color' => 'cyan',
             'url'        => '#',
         ],
+        */
     ],
 
     /*
